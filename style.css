@@ -1,0 +1,108 @@
+body {
+  background: #f2f2f2;
+  font-family: Arial, sans-serif;
+}
+
+.navigation {
+  display: flex;
+  justify-items: center;
+  justify-content: space-between;
+  background: rgb(138, 138, 195);
+  padding: 20px;
+}
+
+li {
+  background-color: aqua;
+  width: 60px;
+  height: 20px;
+  border: 5px solid #ccc;
+}
+
+a:visited {
+  color: green;
+}
+
+a:active {
+  color: blue;
+}
+
+a:hover {
+  color: hotpink;
+}
+
+.cards {
+  text-align: center;
+}
+
+.cards button {
+  border: 5px solid #ccc;
+}
+
+.cards button:hover {
+  background-color: aqua;
+}
+
+.cards button:active {
+  background-color: darkblue; /* Changes WHILE clicking */
+  transform: scale(0.95); /* Shrinks slightly when pressed */
+}
+
+.inputS input {
+  border: 4px solid #ccc;
+  padding: 10px;
+}
+
+.inputS input:active {
+  border-color: green;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.inputS button {
+  background: linear-gradient(to bottom, #4caf50, #45a049);
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.inputS button:hover {
+  background: linear-gradient(to bottom, #5cbf60, #55b059);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.inputS button:active {
+  transform: translateY(0px); /* Moves back down */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(to bottom, #3d8b40, #357a38);
+}
+
+.displays {
+  display: flex;
+  background-color: #357a38;
+  margin-top: 10px;
+  justify-content: space-around;
+}
+
+.displays h1 {
+  background-color: aqua;
+  width: 50px;
+  height: 40px;
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  background-color: #5cbf60;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.container div {
+  background-color: lightblue;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
