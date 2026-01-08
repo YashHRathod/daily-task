@@ -109,29 +109,42 @@ body {
       position: sticky;
     }
 
-     
-    @media (max-width: 768px) {
-
-      .nav-links {
-        display: none;
-      }
-
-      .cards {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .hero h1 {
-        font-size: 26px;
-      }
-    }
     .nav-links{
         width: 25%;
         display: flex;
         justify-content:space-evenly;
     }
-    .logo{
+    /* navbar direct child is logo and only if we need to can go like .navbar>div */
+    .navbar>div{
         margin-left:10px;
-        padding 
+    
     }
-   
+     
+    @media (max-width: 768px) {
+
+      .nav-links{
+          display:none;
+      }
+      /* .logo{
+        padding-left:45%;
+      } */
+      .navbar{
+        display: flex;
+        flex-direction:row;
+        justify-content:center;
+        align-items:center;
+        
+
+      }
+      
+      .cards {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .hero h1 {
+        font-size: 26px;
+      }
+    }
+
+    /* Write base CSS first, media queries AFTER it. */
