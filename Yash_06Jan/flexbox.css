@@ -1,0 +1,113 @@
+*{
+    --color:green   
+}
+.container{
+    /* background-color: yellow; */
+    background: linear-gradient(to right, red, blue);
+    /* --color:red; */
+    /* background:var(--color,pink); */
+    height:auto;
+    display: flex;
+    /* baseline-shift: 10px; */
+    align-items:center;
+    font-style: italic;
+    
+    border: 1px solid black;
+    flex-direction: row;
+    /* flex-wrap: nowrap; */
+    flex-wrap: wrap;   
+    justify-content:center;
+    /* grid: 1px; */
+    position:relative
+
+}
+.container h1{
+
+}
+/* div div{
+    size: 10%;
+    width: 200px;
+    height: 200px;
+    background-color:var(--color);
+    border: 1px solid black;
+    margin: 2px;
+    padding:1px;
+    text-align: center;
+    display: flex;
+    
+    flex-direction: row;
+    justify-content: center;
+    align-items:center ;
+    transition:background-color 0.55s,transform 0.3s;
+    
+
+} */
+.b1 {
+  font-size: 20px;
+}
+
+.b1::first-letter {
+  font-size: 30px;
+  background-color: aqua;
+}
+
+
+.b1,.b2,.b3,.b4,.b5,.b6,.b7,.b8{
+    size: 10%;
+    width: 200px;
+    height: 200px;
+    background-color: brown;
+    border: 1px solid black;
+    margin: 2px;
+    padding:1px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center ;
+    transition:background-color 0.3s,transform 0.3s;
+    
+
+}
+
+.b8{
+    font-size: 16px;
+    
+
+}
+#ram{
+    font-size: 50px;
+    /* background-color: aliceblue; */
+}
+/* #ram:hover{
+    background-color: aquamarine;
+} */
+.b1:hover{
+    background-color:green;
+    transform:rotate(30deg) rotateX(30deg) rotateY(30deg);
+    /* transform: rotateX(30deg); */
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.b2{
+    flex-grow: 5;
+    /* flex-shrink: 2; */
+}
+/* .b3{
+    position:;
+    top: 10px;
+    left: 20px;
+} */
+.b3:active{
+    background-color: blue;
+    transform:scale(1.07);
+}
+.b1::before{
+    content:"Ram and shyam";
+}
+/* .b2{
+    position:relative;
+    top: 30px;
+    left: 20px;
+} */
