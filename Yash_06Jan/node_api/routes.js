@@ -1,41 +1,65 @@
 const express = require("express");
 const router = express.Router();
 const { v4: uuidv4 } = require("uuid");
-const todos=require("./data")
+const Todo=require("./models/Todo")
 const axios=require("axios")
-router.post("/create",(req,res)=>{
-    const { title } = req.body;
 
-  const newTodo = {
-    id: uuidv4(),
-    title,
-    completed: false,
-  };
+router.post("/create", async (req, res) => {
+  try {
+    const newTodo = new Todo(req.body);
+    await newTodo.save();
 
-  todos.push(newTodo);
+    res.status(201).json(newTodo);
+  } catch (error) {
+    res.status(400).json({
+      message: "Failed to create todo",
+      error: error.message,
+    });
+  }
+});
 
-  res.status(201).json(newTodo);
-})
-router.get("/all",(req,res)=>{
-    return res.status(201).json(todos)
-})
-router.put("/completed:id",(req,res)=>{
-      const {id}=req.params;
-      const todo=todos.find(t=>t.id=id);
-      if(!todo)return res.status(404).json("unable to find the id")
-      todo.completed=true;
-      return res.status(200).json(todo)
-})
-router.delete("/delete/:id", (req, res) => {
+router.get("/all", async (req, res) => {
+  try {
+    const todo = await Todo.find();
+
+    return res.status(200).json(todo);
+  } catch (error) {
+    return res.status(500).json({
+      message: "Something went wrong",
+      error: error.message,
+    });
+  }
+});
+
+router.put("/completed/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const todo = await Todo.findByIdAndUpdate(
+      id,
+      { isCompleted: true },
+      {new:true}
+    );
+
+    if (!todo) {
+      return res.status(404).json({ message: "Todo not found" });
+    }
+
+    return res.status(200).json(todo);
+  } catch (error) {
+    return res.status(400).json({ error: error.message });
+  }
+});
+
+router.delete("/delete/:id", async (req, res) => {
   const { id } = req.params;
 
-  const index = todos.findIndex(t => t.id === id);
+  const todo = await Todo.deleteOne({_id:id});
+  if (!todo) {
+      return res.status(404).json({ message: "Todo not found" });
+    }
 
-  if (index === -1) {
-    return res.status(404).json({ message: "Unable to find the id" });
-  }
-
-  todos.splice(index, 1); 
+ 
 
   res.json({ message: "Todo deleted" });
 });
