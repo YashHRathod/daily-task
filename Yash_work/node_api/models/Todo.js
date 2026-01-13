@@ -29,4 +29,13 @@ const TodoSchema= new mongoose.Schema({
 {
     timestamps:true,
 });
+<<<<<<< HEAD:Yash_work/node_api/models/Todo.js
+TodoSchema.index({
+  title: "text",
+  tags: "text"
+});
+
+TodoSchema.index({dueDate:-1});
+=======
+>>>>>>> origin/main:Yash_06Jan/node_api/models/Todo.js
 module.exports=mongoose.model("Todo",TodoSchema)
