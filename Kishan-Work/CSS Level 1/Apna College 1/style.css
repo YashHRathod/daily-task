@@ -1,0 +1,68 @@
+/* " * called -> asterisk " */
+/* " & called -> ampersand " */
+h1 {
+  color: red;
+  background-color: black;
+}
+
+.myclass {
+  color: pink;
+  background-color: blue;
+}
+#para {
+  color: beige;
+  background-color: red;
+}
+p {
+  color: goldenrod;
+  background-color: black;
+}
+
+button {
+  color: white;
+  background-color: pink;
+}
+
+body {
+  background-color: #ffff00;
+}
+
+button {
+  color: green;
+}
+body {
+  background-color: gray;
+}
+
+#First {
+  color: red;
+  background-color: beige;
+}
+
+#Second {
+  color: blue;
+  background-color: white;
+}
+
+#Third {
+  color: yellow;
+  background-color: red;
+}
+
+#fourth {
+  background-color: greenyellow;
+}
+
+.formClass {
+  color: green;
+  background-color: goldenrod;
+}
+
+.box {
+  background-color: gold;
+}
+
+#First,
+#Second {
+  background-color: pink;
+}

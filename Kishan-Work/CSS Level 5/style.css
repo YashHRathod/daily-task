@@ -1,0 +1,21 @@
+div {
+    height : 200px;
+    width: 200px;
+    border-radius: 50%;
+    border : 20px solid gray;
+    border-top: 20px solid black;
+    animation-name : spinAnimation;
+    animation-duration: 2s;
+    animation-timing-function:cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    animation-iteration-count: infinite;
+}
+
+@keyframes spinAnimation{
+    from{
+        transform : rotate(0deg);
+    }
+    to{
+        transform : rotate(360deg);
+    }
+}
+

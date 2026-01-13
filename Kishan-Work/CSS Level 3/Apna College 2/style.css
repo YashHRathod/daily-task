@@ -1,0 +1,24 @@
+div{
+    height : 100px;
+    width: 100px;
+    background-color: aqua;
+    border: 2px solid black;
+    margin: 2px;
+    display: inline-block;
+}
+
+.box1{
+    background-size: cover;
+    background-image: url("city_img.jpg");
+}
+
+.box2{
+    top : 0px;
+    left: 50px;
+    position: fixed;
+}
+
+.box4{
+    top:0px;
+    position:sticky;
+}

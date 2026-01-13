@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    justify-content:space-between;
+    border: 2px solid red;
+    height: 80vh;
+    
+}
+.item{
+    height : 100px;
+    width: 100px;
+    background-color: red;
+    border: 2px solid black;
+    margin: 4px;
+}

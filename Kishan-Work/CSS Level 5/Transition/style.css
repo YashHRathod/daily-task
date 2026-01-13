@@ -1,0 +1,24 @@
+div{
+    width: 100px;
+    height : 100px;
+    background-color : red;
+    transition-property:all;
+    transition-duration:1s;
+}
+
+div:hover{
+    background-color: black;
+    color : white;
+    font-size: 20px;
+    transform: scale(2);
+    position : absolute;
+    left : 50px;
+    top : 50px;
+    transform:rotate(90deg);
+    transform:skew(45deg);
+}
+
+div:active{
+    background-color: blue;
+    color:red
+}

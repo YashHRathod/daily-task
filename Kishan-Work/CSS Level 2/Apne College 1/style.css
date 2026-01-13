@@ -1,0 +1,23 @@
+h1{
+    text-align: center;
+    height: 100px;
+    width: 200px;
+    background-color: red
+}
+
+.box{
+    text-align: center;
+    height:100px;
+    width: 200px;
+    background-color: red;
+    /* border-width: 5px;
+    border-style: dashed;
+    border-color: blue; */
+    border : 2px dotted black;
+    border-radius: 50%;
+
+}
+
+p{
+    color: red;
+}
