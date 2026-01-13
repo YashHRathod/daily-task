@@ -29,4 +29,10 @@ const TodoSchema= new mongoose.Schema({
 {
     timestamps:true,
 });
+TodoSchema.index({
+  title: "text",
+  tags: "text"
+});
+
+TodoSchema.index({dueDate:-1});
 module.exports=mongoose.model("Todo",TodoSchema)

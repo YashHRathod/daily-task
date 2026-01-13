@@ -35,10 +35,13 @@ router.put("/completed/:id", async (req, res) => {
   try {
     const { id } = req.params;
 
-    const todo = await Todo.findByIdAndUpdate(
-      id,
-      { isCompleted: true },
+    const todo = await Todo.updateOne(
+      {_id:id},
+{
+      $set:
+      { isCompleted: true }},
       {new:true}
+    
     );
 
     if (!todo) {
@@ -74,6 +77,29 @@ router.get("/external-todos", async (req, res) => {
     res.json(response.data);
   } catch (error) {
     res.status(500).json({ message: "Failed to fetch external todos" });
+  }
+});
+router.get("/find/:tag", async (req, res) => {
+  try {
+    const { tag } = req.params;
+
+    // const todos = await Todo.find({ tags: tag });
+     const todos = await Todo.find({
+      $text: { $search: tag }
+    });
+    // console.log(todos)
+
+    if (todos.length === 0) {
+      return res.status(404).json({
+        message: "No todos found with this tag"
+      });
+    }
+
+    return res.status(200).json(todos);
+  } catch (error) {
+    return res.status(500).json({
+      message: error.message
+    });
   }
 });
 
