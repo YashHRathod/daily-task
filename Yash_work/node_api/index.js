@@ -6,6 +6,7 @@ const mongoose=require("mongoose")
 const app = express();
 const PORT = process.env.PORT ;
 const router=require("./routes")
+const routerjson=require("./routestodojson")
 
 app.use(cors({ origin: "*" }));
 app.use(express.json());
@@ -24,6 +25,7 @@ mongoose
 
 
 app.use("/",router),
+app.use("/json",routerjson)
 
 
 
