@@ -46,144 +46,129 @@
  *************************************************/
 use("training_db");
 
-// db.posts.aggregate([
-//   { $match: { likes: { $gte: 1 } } },
-//   {
-//     $group: {
-//       _id: "$category",
-//       totalLikes: { $sum: "$likes" },
-//     },
-//   },
-// ]);
+db.posts.aggregate([
+  { $match: { likes: { $gte: 1 } } },
+  {
+    $group: {
+      _id: "$category",
+      totalLikes: { $sum: "$likes" },
+    },
+  },
+]);
 
-// db.posts.aggregate([
-//   { $match: { likes: { $gte: 2 } } },
-//   {
-//     $group: {
-//       _id: "$category",
-//       totalLikes: { $sum: "$likes" },
-//     },
-//   },
-//   { $sort: { totalLikes: -1 } },
-// ]);
+db.posts.aggregate([
+  { $match: { likes: { $gte: 2 } } },
+  {
+    $group: {
+      _id: "$category",
+      totalLikes: { $sum: "$likes" },
+    },
+  },
+  { $sort: { totalLikes: -1 } },
+]);
 
-// db.posts.aggregate([
-//   {
-//     $addFields: {
-//       isPopular: { $cond: [{ $gte: ["$likes", 5] }, true, false] },
-//     },
-//   },
-// ]);
-// db.posts.aggregate([
-//   {
-//     $lookup: {
-//       from: "users",
-//       localField: "userId",
-//       foreignField: "_id",
-//       as: "userInfo",
-//     },
-//   },
-//   { $unwind: "$userInfo" },
-//   {
-//     $addFields: { isPopular: { $cond: [{ $gte: [(likes: 5)] }, true, false] } },
-//   },
-// ]);
+db.posts.aggregate([
+  {
+    $addFields: {
+      isPopular: { $cond: [{ $gte: ["$likes", 5] }, true, false] },
+    },
+  },
+]);
+db.posts.aggregate([
+  {
+    $lookup: {
+      from: "users",
+      localField: "userId",
+      foreignField: "_id",
+      as: "userInfo",
+    },
+  },
+  { $unwind: "$userInfo" },
+  {
+    $addFields: { isPopular: { $cond: [{ $gte: [(likes: 5)] }, true, false] } },
+  },
+]);
+db.posts.aggregate([
+  {
+    $group: {
+      _id: "$category",
+      totalposts: { $sum: 1 },
+      totallikes: { $sum: "$likes" },
+      averagelike: { $avg: "$likes" },
+    },
+  },
+  { $match: { averagelike: { $gte: 4 } } },
+]);
+ db.posts.aggregate([{$match:{names:/end/i}},{$group:{_id:"$category",totallikes:{$sum:"$likes"}},averagelikes:{$avg:"$likes"}},{$match:{averagelikes:{$gte:4}}}db.posts.aggeregate([{$group:{_id:"$category",totalposts:{$sum:1},totallikes:{$sum:"$likes"},averagelike:{$avg:"$likes"}}}])])
+db.posts.aggregate([
+  {
+    $lookup: {
+      from: "users",
+      localField: "userId",
+      foreignField: "_id",
+      as: "userInfo",
+    },
+  },
+  { $unwind: "$userInfo" },
+  {
+    $addFields: {
+      isPopular: {
+        $cond: [{ $gte: ["$likes", 5] }, true, false],
+      },
+    },
+  },
+  {
+    $project: {
+      title: 1,
+      "userInfo.name": 1,
+      likes: 1,
+      isPopular: 1,
+    },
+  },
+]);
 
+db.posts.aggregate([
+  {
+    $lookup: {
+      from: "users",
+      localField: "userId",
+      foreignField: "_id",
+      as: "userInfo",
+    },
+  },
+  { $unwind: "$userInfo" },
+  {
+    $group: {
+      _id: "$userInfo.name",
+      totalLikes: { $sum: "$likes" },
+    },
+  },
+  {
+    $project: {
+      _id: 0,
+      username: "$_id",
+      totalLikes: 1,
+    },
+  },
+]);
 
+db.posts.createIndex({ category: 1 });
 
-// db.posts.aggregate([
-//   {
-//     $group: {
-//       _id: "$category",
-//       totalposts: { $sum: 1 },
-//       totallikes: { $sum: "$likes" },
-//       averagelike: { $avg: "$likes" },
-//     },
-//   },
-//   { $match: { averagelike: { $gte: 4 } } },
-// ]);
+db.posts.createIndex({ category: 1, likes: -1 });
 
+db.posts.getIndexes();
 
+db.posts.find({ category: "frontend" }).explain("executionStats");
 
+db.posts.createIndex({ createdAt: 1 }, { expireAfterSeconds: 10 });
 
-// db.posts.aggregate([
-//   { $match: { likes: { $ne: 0 } } },
-//   { $group: { _id: "$category", totallikes: { $sum: "$likes" } } },
-// ]);
-
-
-
-
-// db.posts.aggregate([
-//   {
-//     $lookup: {
-//       from: "users",
-//       localField: "userId",
-//       foreignField: "_id",
-//       as: "userInfo",
-//     },
-//   },
-//   { $unwind: "$userInfo" },
-//   {
-//     $addFields: {
-//       isPopular: {
-//         $cond: [{ $gte: ["$likes", 5] }, true, false],
-//       },
-//     },
-//   },
-//   {
-//     $project: {
-//       title: 1,
-//       "userInfo.name": 1,
-//       likes: 1,
-//       isPopular: 1,
-//     },
-//   },
-// ]);
-
-// db.posts.aggregate([
-//   {
-//     $lookup: {
-//       from: "users",
-//       localField: "userId",
-//       foreignField: "_id",
-//       as: "userInfo",
-//     },
-//   },
-//   { $unwind: "$userInfo" },
-//   {
-//     $group: {
-//       _id: "$userInfo.name",
-//       totalLikes: { $sum: "$likes" },
-//     },
-//   },
-//   {
-//     $project: {
-//       _id: 0,
-//       username: "$_id",
-//       totalLikes: 1,
-//     },
-//   },
-// ]);
-
-// db.posts.createIndex({ category: 1 });
-
-// db.posts.createIndex({ category: 1, likes: -1 });
-
-// db.posts.getIndexes();
-
-// db.posts.find({ category: "frontend" }).explain("executionStats");
-
-// db.posts.createIndex({ createdAt: 1 }, { expireAfterSeconds: 10 });
-
-// db.posts.insertOne({
-//   title: "temp post",
-//   createdAt: new Date(),
-// });
+db.posts.insertOne({
+  title: "temp post",
+  createdAt: new Date(),
+});
 
 db.serverStatus().metrics.ttl;
 
-// db.posts.getIndexes();
+db.posts.getIndexes();
 
-// db.posts.find({ title: "temp post" });
-
+db.posts.find({ title: "temp post" });

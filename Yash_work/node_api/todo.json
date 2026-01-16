@@ -1,0 +1,32 @@
+[
+  {
+    "id": "04c577ea-d2aa-4078-b417-cb9f31d047db"
+  },
+  {
+    "id": "304798e1-cd92-43bf-a946-ab5ebca60afb",
+    "title": "Learn JS",
+    "description": "basics in the frontend",
+    "tags": [
+      "frontend",
+      "basics"
+    ],
+    "metadata": {
+      "priority": 12343,
+      "duedate": "12-01-2024"
+    }
+  },
+  {
+    "id": "896ed807-0953-4f3e-afd8-f02d634277ff",
+    "title": "Learn TS",
+    "description": "medium in the frontend",
+    "tags": [
+      "frontend",
+      "medium"
+    ],
+    "metadata": {
+      "priority": 12343,
+      "duedate": "12-01-2024"
+    },
+    "isCompleted": false
+  }
+]

@@ -35,7 +35,6 @@ router.put("/completed/:id", async (req, res) => {
   try {
     const { id } = req.params;
 
-<<<<<<< HEAD:Yash_work/node_api/routes.js
     const todo = await Todo.updateOne(
       {_id:id},
 {
@@ -43,12 +42,6 @@ router.put("/completed/:id", async (req, res) => {
       { isCompleted: true }},
       {new:true}
     
-=======
-    const todo = await Todo.findByIdAndUpdate(
-      id,
-      { isCompleted: true },
-      {new:true}
->>>>>>> origin/main:Yash_06Jan/node_api/routes.js
     );
 
     if (!todo) {
@@ -86,7 +79,6 @@ router.get("/external-todos", async (req, res) => {
     res.status(500).json({ message: "Failed to fetch external todos" });
   }
 });
-<<<<<<< HEAD:Yash_work/node_api/routes.js
 router.get("/find/:tag", async (req, res) => {
   try {
     const { tag } = req.params;
@@ -110,8 +102,6 @@ router.get("/find/:tag", async (req, res) => {
     });
   }
 });
-=======
->>>>>>> origin/main:Yash_06Jan/node_api/routes.js
 
 
 module.exports=router
