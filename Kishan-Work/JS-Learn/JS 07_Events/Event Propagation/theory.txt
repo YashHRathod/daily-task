@@ -1,0 +1,104 @@
+✅ What is Event Propagation in JavaScript?
+
+When you click on an element, the event does not only happen on that element.
+It travels through the DOM tree in a specific order.
+This traveling of event is called event propagation.
+
+Example DOM:
+<div id="parent">
+ <button id="child">Click</button>
+</div>
+If you click the button, the event involves:
+
+button
+
+then div
+
+then body
+
+then html
+
+then document
+
+But in which order?
+That’s where phases come in.
+
+🔁 Three Phases of Event Propagation
+1️⃣ Capturing Phase (top → down)
+
+Event goes from:
+
+document → html → body → div → button
+
+Rarely used, but exists.
+
+2️⃣ Target Phase
+
+Event reaches the actual clicked element.
+
+👉 button
+
+3️⃣ Bubbling Phase (bottom → up) ✅ MOST IMPORTANT
+
+Event goes back up:
+
+button → div → body → html → document
+
+👉 By default, JavaScript uses bubbling.
+
+✅ Example: Bubbling in Action
+document.getElementById("parent").addEventListener("click", () => {
+  console.log("Parent clicked");
+});
+
+document.getElementById("child").addEventListener("click", () => {
+  console.log("Child clicked");
+});
+
+👉 When you click the button:
+
+Output:
+
+Child clicked
+Parent clicked
+
+
+Why?
+
+Because:
+
+Event hits child
+
+Then bubbles up to parent
+
+✅ Capturing Phase Example
+parent.addEventListener("click", () => {
+  console.log("Parent");
+}, true); // capture = true
+
+child.addEventListener("click", () => {
+  console.log("Child");
+}, true);
+
+
+Now order will be:
+
+Parent
+Child
+
+
+Because event is captured from top to down.
+
+⚠️ But in real projects, 99% you use bubbling, not capturing.
+
+🛑 Stop Event Propagation
+
+Sometimes you DON’T want parent to run.
+
+child.addEventListener("click", (e) => {
+  e.stopPropagation();
+  console.log("Only child");
+});
+
+
+Now parent will NOT fire.

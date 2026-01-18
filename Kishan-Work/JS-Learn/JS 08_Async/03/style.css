@@ -1,0 +1,15 @@
+.insert{
+    /* background-color: red; */
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}   
+
+table, th, td {
+    background-color: white;
+  border:1px solid black;
+}     
+body{
+    background-color: gray;
+}
