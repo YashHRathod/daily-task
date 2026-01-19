@@ -24,14 +24,43 @@ function App() {
       ) : (
         <button onClick={removeUser}>Remove admin</button>
       )} */}
-        {/* <Layout>
+      {/* <Layout>
       <UserCard
         name="Yash"
         age={21}
         user={{ role: "admin" }}
       />
     </Layout> */}
-    <Todo />
+      {/* <Todo /> */}
+      {/* <Counter/> */}
+      {/* <Users /> */}
+
+      {/* <Form/> */}
+
+      {/* <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <p>You typed: {name}</p> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/form" element={<Form />} />
+        <Route path="/Todo" element={<Todo />} />
+        <Route
+          path="/usercard"
+          element={
+            <Layout>
+              <UserCard name="Yash" age={21} user={{ role: 'admin' }} />
+            </Layout>
+          }
+          
+        />
+        <Route path="/counter" element={<Counter/>}/>
+          <Route path="/form/:id" element={<Form />} />
+
+        
+      </Routes>
     </>
   );
 }
