@@ -1,10 +1,16 @@
 // import { useState } from 'react';
-import Layout from "./components/Layout";
-import UserCard from "./components/UserCard";
-import './App.css';
+import Layout from './components/Layout';
+import UserCard from './components/UserCard';
+// import './App.css';
 import Todo from './components/Todo';
+import Counter from './components/Counter';
+import Form from './components/Form';
+import { Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+
 function App() {
   // const [user, setuser] = useState('');
+  // const [name, setName] = useState("");
   // const [bool, setbool] = useState(true);
   // const addUser = () => {
   //   setuser({ role: 'admin', age: 20 });
@@ -24,14 +30,43 @@ function App() {
       ) : (
         <button onClick={removeUser}>Remove admin</button>
       )} */}
-        {/* <Layout>
+      {/* <Layout>
       <UserCard
         name="Yash"
         age={21}
         user={{ role: "admin" }}
       />
     </Layout> */}
-    <Todo />
+      {/* <Todo /> */}
+      {/* <Counter/> */}
+      {/* <Users /> */}
+
+      {/* <Form/> */}
+
+      {/* <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <p>You typed: {name}</p> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/form" element={<Form />} />
+        <Route path="/Todo" element={<Todo />} />
+        <Route
+          path="/usercard"
+          element={
+            <Layout>
+              <UserCard name="Yash" age={21} user={{ role: 'admin' }} />
+            </Layout>
+          }
+          
+        />
+        <Route path="/counter" element={<Counter/>}/>
+          <Route path="/form/:id" element={<Form />} />
+
+        
+      </Routes>
     </>
   );
 }
