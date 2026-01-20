@@ -1,6 +1,6 @@
-import { useState } from "react";
-import "./App.css";
-import UserCard from "./components/UserCard";
+// import { useEffect, useState } from "react";
+// import "./App.css";
+// import UserCard from "./components/UserCard";
 
 // function App() {
 //   const users = [
@@ -64,38 +64,247 @@ import UserCard from "./components/UserCard";
 // export default App;
 
 // Rendering Logic & Lists
-function App() {
-  const [users, setUsers] = useState([
-    { name: "Pratik", age: 21 },
-    { name: "Yash", age: 22 },
-    { name: "Kishan", age: 23 },
-  ]);
+// function App() {
+//   const [users, setUsers] = useState([
+//     { name: "Pratik", age: 21 },
+//     { name: "Yash", age: 22 },
+//     { name: "Kishan", age: 23 },
+//   ]);
 
-  const [showUsers, setShowUsers] = useState(true);
+//   const [showUsers, setShowUsers] = useState(true);
+
+//   return (
+//     <>
+//       <div>
+//         <h1>Rendering Logic & Lists</h1>
+
+//         <button
+//           onClick={() => {
+//             setShowUsers(!showUsers);
+//           }}
+//         >
+//           {showUsers ? "Hide Users" : "Show Users"}
+//         </button>
+
+//         {showUsers && (
+//           <div>
+//             {users.map((user, index) => (
+//               <UserCard key={index} name={user.name} age={user.age} />
+//             ))}
+//           </div>
+//         )}
+//       </div>
+//     </>
+//   );
+// }
+
+// export default App;
+
+//Side Effects (useEffect)
+
+// import { useEffect, useState } from "react";
+// import Layout from "./components/Layout";
+// import Header from "./components/Header";
+// import Counter from "./components/Counter";
+// import Toggle from "./components/Toggle";
+// import TaskInput from "./components/TaskInput";
+// import TaskList from "./components/TaskList";
+// import Timer from "./components/Timer";
+
+// function App() {
+//   const [tasks, setTasks] = useState([
+//     { id: 1, text: "Learn React Basics", completed: true },
+//     { id: 2, text: "Build Mini Project", completed: false },
+//     { id: 3, text: "Practice Hooks", completed: false },
+//   ]);
+
+//   const [showCompleted, setShowCompleted] = useState(true);
+
+//   useEffect(() => {
+//     console.log("Tasks changed:", tasks);
+//   }, [tasks]);
+
+//   const addTask = (text) => {
+//     if (!text.trim()) return;
+
+//     setTasks((prev) => [...prev, { id: Date.now(), text, completed: false }]);
+//   };
+
+//   const toggleTask = (id) => {
+//     setTasks((prev) =>
+//       prev.map((task) =>
+//         task.id === id ? { ...task, completed: !task.completed } : task
+//       )
+//     );
+//   };
+
+//   return (
+//     <Layout>
+//       <Header title="Smart Task Dashboard" />
+
+//       <div style={{ display: "flex", justifyContent: "space-between" }}>
+//         <Counter count={tasks.length} />
+//         <Timer />
+//       </div>
+
+//       <TaskInput addTask={addTask} />
+
+//       <Toggle
+//         showCompleted={showCompleted}
+//         setShowCompleted={setShowCompleted}
+//       />
+
+//       <TaskList
+//         tasks={tasks}
+//         showCompleted={showCompleted}
+//         toggleTask={toggleTask}
+//       />
+
+//       {tasks.length === 0 && <p>No tasks available</p>}
+//     </Layout>
+//   );
+// }
+
+// export default App;
+
+//controll input field
+
+// import React from "react";
+
+// export default function App() {
+//   const [formdata, setformdata] = React.useState({
+//     name: "",
+//     email: "",
+//   });
+
+//   const HandleSubmit = (e) => {
+//     e.preventDefault();
+//     console.log("Form Data : ", formdata);
+//   };
+
+//   return (
+//     <div>
+//       <h1>Form</h1>
+
+//       <form onSubmit={HandleSubmit}>
+//         <input
+//           type="text"
+//           placeholder="Enter Name"
+//           value={formdata.name}
+//           onChange={(e) => setformdata({ ...formdata, name: e.target.value })}
+//         />
+//         <br />
+
+//         <input
+//           type="email"
+//           placeholder="Enter Email"
+//           value={formdata.email}
+//           onChange={(e) => setformdata({ ...formdata, email: e.target.value })}
+//         />
+//         <br />
+
+//         <button type="submit">Submit</button>
+//       </form>
+//     </div>
+//   );
+// }
+
+//Link
+
+// import React from "react";
+// import { Routes, Route, Link } from "react-router-dom";
+// import Counter from "./components/Counter";
+// import Header from "./components/Header";
+
+// export default function App() {
+//   return (
+//     <div>
+//       <nav>
+//         <Link to="/">Header</Link>
+//         <Link to="/counter">Counter</Link>
+//       </nav>
+//     </div>
+//   );
+// }
+
+// import { React, useEffect, useState } from "react";
+
+// export default function App() {
+//   const [data, setdata] = useState([]);
+//   const [loading, setloading] = useState(true);
+//   const [error, seterror] = useState(null);
+
+//   useEffect(() => {
+//     const fetchdata = async () => {
+//       try {
+//         const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+//         if (!res.ok) {
+//           throw new Error("Something went wrong");
+//         }
+//         const result = await res.json();
+//         setdata(result);
+//         setloading(false);
+//       } catch (err) {
+//         seterror(err.message);
+//       } finally {
+//         setloading(false);
+//       }
+//     };
+
+//     fetchdata();
+//   }, []);
+
+//   if (loading) return <p>Loading posts...</p>;
+//   if (error) return <p style={{ color: "red" }}>{error}</p>;
+
+//   return (
+//     <div>
+//       <h2>Manual Fetch</h2>
+//       <ul>
+//         {data.map((post) => (
+//           <li key={post.id}>{post.title}</li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
+
+import { useEffect, useState } from "react";
+import api from "./api/axios";
+
+export default function App() {
+  const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        setIsLoading(true);
+
+        const res = await api.get("/posts");
+        setPosts(res.data.slice(0, 5));
+      } catch (err) {
+        setError("Failed to fetch posts");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
+  if (isLoading) return <p>Loading posts...</p>;
+  if (error) return <p style={{ color: "red" }}>{error}</p>;
 
   return (
-    <>
-      <div>
-        <h1>Rendering Logic & Lists</h1>
-
-        <button
-          onClick={() => {
-            setShowUsers(!showUsers);
-          }}
-        >
-          {showUsers ? "Hide Users" : "Show Users"}
-        </button>
-
-        {showUsers && (
-          <div>
-            {users.map((user, index) => (
-              <UserCard key={index} name={user.name} age={user.age} />
-            ))}
-          </div>
-        )}
-      </div>
-    </>
+    <div>
+      <h2>Axios with Interceptors</h2>
+      <ul>
+        {posts.map((post) => (
+          <li key={post.id}>{post.title}</li>
+        ))}
+      </ul>
+    </div>
   );
 }
-
-export default App;
