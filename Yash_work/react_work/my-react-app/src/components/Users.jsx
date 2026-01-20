@@ -1,33 +1,53 @@
-import { useEffect, useState } from "react";
-
+// import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+const URL=import.meta.env.VITE_API_URL || "https://jsonplaceholder.typicode.com/users"
 function Users() {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  // const [users, setUsers] = useState([]);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState(null);
 
-  useEffect(() => {
-    async function fetchUsers() {
-      try {
-        const res = await fetch(
-          "https://jsonplaceholder.typicode.com/users"
-        );
-        const data = await res.json();
-        setUsers(data);
-      } catch  {
-        setError("Failed to fetch users");
-      } finally {
-        setLoading(false);
-      }
+  // useEffect(() => {
+  //   async function fetchUsers() {
+  //     try {
+  //       const res = await fetch(
+  //         "https://jsonplaceholder.typicode.com/users"
+  //       );
+  //       const users = await res.json();
+  //       setUsers(users);
+  //     } catch  {
+  //       setError("Failed to fetch users");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   }
+  //   fetchUsers();
+  // }, []);
+ const { data, isPending, error, isError} = useQuery({
+  queryKey: ["users"],
+  queryFn: async () => {
+    const res = await fetch(URL);
+    if (error) {
+      console.log("Yash")
+      throw new Error("Failed to fetch users");
     }
-    fetchUsers();
-  }, []);
+    
+    return res.json();
+  },
+  retry: false, 
+  
+});
+console.log(data,isPending,error)
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+ if (isPending) {
+    return <span>Loading...</span>
+  }
 
+  if (isError) {
+    return <span>Error: {error.message}</span>
+  }
   return (
     <ul>
-      {users && users.map(user => (
+      {data && data.map(user => (
         <li key={user.id}>
           {user.name} ({user.email})
         </li>
@@ -37,3 +57,4 @@ function Users() {
 }
 
 export default Users;
+

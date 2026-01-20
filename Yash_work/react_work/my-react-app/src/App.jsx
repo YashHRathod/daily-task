@@ -7,6 +7,9 @@ import Counter from './components/Counter';
 import Form from './components/Form';
 import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
+import Users from './components/Users';
+import UserHook from './components/UserHook';
+import UserCounter from "./components/UserCounter"
 
 function App() {
   // const [user, setuser] = useState('');
@@ -62,8 +65,12 @@ function App() {
           }
           
         />
+        <Route path="/user" element={<Users/>}/>
         <Route path="/counter" element={<Counter/>}/>
           <Route path="/form/:id" element={<Form />} />
+          <Route path="/hookuser" element={<UserHook/>}/>
+          <Route path="/hookusercounter" element={<UserCounter/>}/>
+
 
         
       </Routes>
