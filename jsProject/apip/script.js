@@ -1,6 +1,5 @@
 const list = document.getElementById("list");
-const URL = "https://jsonplaceholder.typicode.com/posts?_limit=5";
-
+const URL=import.meta.env.VITE_API_URL 
 document.getElementById("fetchbtn").addEventListener("click", () => {
   fetch(URL)
     .then((res) => {

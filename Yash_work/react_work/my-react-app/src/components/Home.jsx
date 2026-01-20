@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import toast from "react-hot-toast"
 function Home() {
   const navigate = useNavigate();
   const [textt, settextt] = useState("");
@@ -16,6 +16,9 @@ function Home() {
 
   return (
     <>
+    <button onClick={() => toast.success("Toast works!")}>
+  Test Toast
+</button>
       <h1>Home Page</h1>
       <input 
         type="text" 
