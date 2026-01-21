@@ -6,7 +6,6 @@ function Home() {
   const [textt, settextt] = useState("");
 
   const navigation = () => {
-    // Navigates to the route using the current state value
     navigate(`/form/${textt}`);
   };
 
@@ -16,12 +15,12 @@ function Home() {
 
   return (
     <>
-    <button onClick={() => toast.success("Toast works!")}>
+    <button onClick={() => toast.error("Toast works!")}>
   Test Toast
 </button>
       <h1>Home Page</h1>
       <input 
-        type="text" 
+        type="number" 
         value={textt} 
         onChange={handleChange} 
         placeholder="Enter ID"

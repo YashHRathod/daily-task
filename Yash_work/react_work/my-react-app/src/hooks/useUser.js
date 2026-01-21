@@ -16,6 +16,8 @@ function useUsers() {
       console.log("2")
       return res.json();
     },
+    retry:true,
+    
     
   //    onSuccess: () => {
   //     console.log("YASHMC!!")
