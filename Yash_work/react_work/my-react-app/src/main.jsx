@@ -4,6 +4,7 @@ import App from "./App.jsx";
 import UserProvider from "./context/UserProvider.jsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import "./index.css";
 
 const queryClient = new QueryClient();
@@ -14,6 +15,7 @@ createRoot(document.getElementById("root")).render(
       <UserProvider>
         <App />
         <Toaster position="top-right" />
+         <ReactQueryDevtools initialIsOpen={false} />
       </UserProvider>
     </QueryClientProvider>
   </BrowserRouter>

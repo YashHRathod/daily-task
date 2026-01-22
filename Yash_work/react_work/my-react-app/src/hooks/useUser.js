@@ -25,6 +25,7 @@ function useUsers() {
   //     toast.error("Failed to load users");
   //     console.log("YASH")
   //   },
+  staleTime:10000,
     
   
   });

@@ -16,9 +16,13 @@ function Home() {
 
   return (
     <>
+    
     <button onClick={() => toast.success("Toast works!")}>
   Test Toast
 </button>
+<button onClick={()=>{
+  navigate("/hookuser")
+}}>userhook</button>
       <h1>Home Page</h1>
       <input 
         type="text" 
