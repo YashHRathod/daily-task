@@ -33,7 +33,7 @@ function Users() {
     
     return res.json();
   },
-  retry: false, 
+  retry: true, 
   
 });
 console.log(data,isPending,error)
