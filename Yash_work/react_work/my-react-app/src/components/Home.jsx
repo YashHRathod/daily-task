@@ -18,6 +18,9 @@ function Home() {
     <button onClick={() => toast.error("Toast works!")}>
   Test Toast
 </button>
+<button onClick={()=>{
+  navigate("/hookuser")
+}}>userhook</button>
       <h1>Home Page</h1>
       <input 
         type="number" 
