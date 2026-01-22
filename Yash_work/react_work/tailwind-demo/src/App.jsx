@@ -1,28 +1,14 @@
-import Cards from "./component/Cards";
+import { Routes, Route } from "react-router-dom";
+import Home from "./component/Home";
+import Tablebox from "./component/Tablebox";
+import LoginForm from "./component/LoginForm";
 
 export default function App() {
   return (
-    <div className="
-      min-h-screen bg-red-300 p-10 text-xl font-semibold
-      grid grid-cols-1
-      sm:grid-cols-2
-      md:grid-cols-3
-      lg:grid-cols-5
-      gap-4
-    ">
-      <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
-      <Cards />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/table" element={<Tablebox />} />
+      <Route path="/form" element={<LoginForm />} />
+    </Routes>
   );
 }
