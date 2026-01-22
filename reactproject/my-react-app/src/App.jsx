@@ -309,54 +309,210 @@
 //   );
 // }
 
-import React from "react";
-import { FaBeer } from "react-icons/fa";
-export default function App() {
-  return (
-    <div>
-      <div className="flex justify-between items-center p-4 bg-blue-500 text-white">
-        <h1 className="text-xl">Orcas</h1>
-        <button className="bg-white text-blue-500 px-3 py-1 rounded">
-          Login
-        </button>
-      </div>
-      <div className="p-4 m-2 rounded-xl shadow-lg bg-yellow-400">
-        <h2 className="text-lg font-semibold mb-2">Tailwind Card</h2>
-        <p className="text-gray-600">This card uses only utility classes.</p>
-      </div>
-      <div className="grid grid-cols-3 gap-4 p-4">
-        <div className="bg-gray-200 p-4">1</div>
-        <div className="bg-gray-200 p-4">2</div>
-        <div className="bg-gray-200 p-4">3</div>
-      </div>
+// import React from "react";
+// import { FaBeer } from "react-icons/fa";
+// export default function App() {
+//   return (
+//     <div>
+//       <div className="flex justify-between items-center p-4 bg-blue-500 text-white">
+//         <h1 className="text-xl">Orcas</h1>
+//         <button className="bg-white text-blue-500 px-3 py-1 rounded">
+//           Login
+//         </button>
+//       </div>
+//       <div className="p-4 m-2 rounded-xl shadow-lg bg-yellow-400">
+//         <h2 className="text-lg font-semibold mb-2">Tailwind Card</h2>
+//         <p className="text-gray-600">This card uses only utility classes.</p>
+//       </div>
+//       <div className="grid grid-cols-3 gap-4 p-4">
+//         <div className="bg-gray-200 p-4">1</div>
+//         <div className="bg-gray-200 p-4">2</div>
+//         <div className="bg-gray-200 p-4">3</div>
+//       </div>
 
-      <div className="flex flex-col md:flex-row p-4 bg-white shadow-lg rounded-xl">
-        <img src="https://www.sakshi.com/gallery_images/2025/07/24/aneet%20padda6.jpg" />
-        <div>
-          <h2 className="text-lg font-bold">Responsive Card</h2>
-          <p className="text-gray-600">
-            Stacks on mobile, horizontal on desktop.
-          </p>
-        </div>
-      </div>
-      <button
-        className="
-        bg-blue-500 
-        text-white 
-        px-4 py-2 
-        rounded-lg
-        hover:bg-blue-600
-        active:scale-95
-        disabled:opacity-50
-      "
-        disabled={false}
-      >
-        Click Me
-      </button>
-      <div className="flex items-center gap-2 text-xl">
-        <FaBeer />
-        <span>Cheers!</span>
-      </div>
-    </div>
-  );
-}
+//       <div className="flex flex-col md:flex-row p-4 bg-white shadow-lg rounded-xl">
+//         <img src="https://www.sakshi.com/gallery_images/2025/07/24/aneet%20padda6.jpg" />
+//         <div>
+//           <h2 className="text-lg font-bold">Responsive Card</h2>
+//           <p className="text-gray-600">
+//             Stacks on mobile, horizontal on desktop.
+//           </p>
+//         </div>
+//       </div>
+//       <button
+//         className="
+//         bg-blue-500
+//         text-white
+//         px-4 py-2
+//         rounded-lg
+//         hover:bg-blue-600
+//         active:scale-95
+//         disabled:opacity-50
+//       "
+//         disabled={false}
+//       >
+//         Click Me
+//       </button>
+//       <div className="flex items-center gap-2 text-xl">
+//         <FaBeer />
+//         <span>Cheers!</span>
+//       </div>
+//     </div>
+//   );
+// }
+
+// import React from "react";
+// import "antd/dist/reset.css";
+// import { Row, Col, Table, DatePicker, Modal, Button } from "antd";
+// const { RangePicker } = DatePicker;
+
+// const columns = [
+//   {
+//     title: "Name",
+//     dataIndex: "name",
+//     key: "name",
+//   },
+//   {
+//     title: "Age",
+//     dataIndex: "age",
+//     key: "age",
+//   },
+//   {
+//     title: "Address",
+//     dataIndex: "address",
+//     key: "address",
+//   },
+// ];
+
+// const data = [
+//   {
+//     key: "1",
+//     name: "John Brown",
+//     age: 32,
+//     address: "New York No. 1 Lake Park",
+//   },
+//   {
+//     key: "2",
+//     name: "Jim Green",
+//     age: 42,
+//     address: "London No. 1 Lake Park",
+//   },
+//   {
+//     key: "3",
+//     name: "Joe Black",
+//     age: 32,
+//     address: "Sidney No. 1 Lake Park",
+//   },
+// ];
+
+// export default function App() {
+//   const [isModalVisible, setIsModalVisible] = React.useState(false);
+
+//   const showModal = () => {
+//     setIsModalVisible(true);
+//   };
+
+//   const handleOk = () => {
+//     setIsModalVisible(false);
+//   };
+
+//   const handleCancel = () => {
+//     setIsModalVisible(false);
+//   };
+
+//   React.useEffect(() => {
+//     showModal();
+//   }, []);
+
+//   return (
+//     <div>
+//       <Row gutter={[16, 16]} className="p-4">
+//         <Col xs={24} sm={12} md={8} lg={6} className="bg-blue-200 p-4">
+//           Column 1
+//         </Col>
+//         <Col xs={24} sm={12} md={8} lg={6} className="bg-green-200 p-4">
+//           Column 2
+//         </Col>
+//         <Col xs={24} sm={12} md={8} lg={6} className="bg-red-200 p-4">
+//           Column 3
+//         </Col>
+//         <Col xs={24} sm={12} md={8} lg={6} className="bg-yellow-200 p-4">
+//           Column 4
+//         </Col>
+//       </Row>
+
+//       <Table columns={columns} dataSource={data} className="p-4" />
+
+//       <RangePicker className="m-4" />
+
+//       <Modal
+//         title="Welcome to Ant Design Modal"
+//         visible={isModalVisible}
+//         onOk={handleOk}
+//         onCancel={handleCancel}
+//         footer={[
+//           <Button key="back" onClick={handleCancel}>
+//             Return
+//           </Button>,
+//           <Button key="submit" type="primary" onClick={handleOk}>
+//             Submit
+//           </Button>,
+//         ]}
+//       >
+//         <p>This is a sample modal using Ant Design components.</p>
+//       </Modal>
+//     </div>
+//   );
+// }
+
+// import React from "react";
+// import { Card } from "./components/ui/card";
+// import { Input } from "@/components/ui/input";
+// import { Button } from "@/components/ui/button";
+// import { Label } from "@/components/ui/label";
+// import { CardHeader } from "@/components/ui/card";
+// import { CardTitle } from "@/components/ui/card";
+// import { CardContent } from "./components/ui/card";
+// export default function App() {
+//   return (
+//     <div className="min-h-screen flex items-center justify-center bg-slate-100">
+//       <Card className="w-[350px]">
+//         <CardHeader>
+//           <CardTitle>Login</CardTitle>
+//         </CardHeader>
+
+//         <CardContent className="space-y-4">
+//           <div className="space-y-1">
+//             <Label>Email</Label>
+//             <Input placeholder="Enter email" />
+//           </div>
+
+//           <div className="space-y-1">
+//             <Label>Password</Label>
+//             <Input type="password" placeholder="Enter password" />
+//           </div>
+
+//           <Button className="w-full">Sign In</Button>
+//         </CardContent>
+//       </Card>
+//     </div>
+//   );
+// }
+
+// import React from "react";
+
+// export default function App() {
+//   return (
+//     <div className="max-w-sm p-6 bg-white rounded-xl shadow-lg text-center">
+//       <img
+//         src="https://via.placeholder.com/80"
+//         className="mx-auto rounded-full mb-4"
+//       />
+//       <h2 className="text-xl font-bold">Pratik</h2>
+//       <p className="text-gray-500">Frontend Developer</p>
+//       <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+//         Follow
+//       </button>
+//     </div>
+//   );
+// }
