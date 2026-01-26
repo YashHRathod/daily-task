@@ -18,7 +18,7 @@ function Users() {
   return (
     <ul>
       {users.map((user) => (
-        <li key={user.name}>{user.name}</li>
+        <li key={user.address}>{user.name}</li>
       ))}
     </ul>
   );
