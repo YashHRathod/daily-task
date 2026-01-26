@@ -1,0 +1,16 @@
+.red-table .ant-table {
+  background-color: red;
+}
+
+.red-table .ant-table-thead > tr > th {
+  background-color: rgb(48, 2, 2);
+  color: white;
+}
+
+.red-table .ant-table-tbody > tr > td {
+  background-color: rgb(121, 5, 5);
+  color: white;
+}
+.red-table .ant-table-tbody > tr:hover > td { 
+    background-color: rgb(33, 3, 3) !important; 
+}
