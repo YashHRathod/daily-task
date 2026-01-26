@@ -1,17 +1,20 @@
 import React from 'react'
 import {Flex,Space,Table,Tag} from 'antd';
+import "./Tablebox.css"
+
 const coloums=[
         {
             title:'Name',
             dataIndex:'name',
             key:'name',
-            render: text => <a>{text}</a>,
+            render: text => <a >{text}</a>,
             sorter:(a,b)=>a.name.localeCompare(b.name)
         },
         {
             title:'Age',
             dataIndex:'age',
             key:'age',
+        
             sorter:(a,b)=> a.age-b.age
         },
         {
@@ -79,5 +82,5 @@ const data = [
     tags: ['cool', 'teacher'],
   },
 ];
-const Tablebox=()=><Table columns={coloums} dataSource={data}/>
+const Tablebox=()=><div className="red-table"><Table  columns={coloums} dataSource={data} /></div>
 export default Tablebox;

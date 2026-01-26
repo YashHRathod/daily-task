@@ -4,10 +4,14 @@ import Datepicker from './DatePicker';
 import Cards from './Cards';
 import { Pagination } from "antd";
 import { Button, Modal } from "antd";
+import { useTheme } from '../../theme/ThemeContext';
+
 
 function Home() {
   const [currentPage, setCurrentPage] = useState(1);
     const [open, setOpen] = useState(false);
+    const { toggleTheme } = useTheme();
+
   const navigate = useNavigate();
 
   const pageSize = 10;
@@ -23,7 +27,10 @@ function Home() {
 
   return (
     <div className="min-h-screen bg-red-300 p-10">
-        <button onClick={()=>navigate("/form")}>Login</button>
+      <Button className="ml-0 fixed"type="primary" onClick={toggleTheme}>
+         
+      </Button>
+        <button className="ml-10"onClick={()=>navigate("/form")}>Login</button>
       {/* Filter */}
       <div className="mb-6 flex justify-end">
         <Datepicker />
