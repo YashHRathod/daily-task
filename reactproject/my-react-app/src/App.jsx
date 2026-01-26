@@ -519,12 +519,13 @@
 
 import React from "react";
 import Counter from "./components/Counter";
+import UserProfile from "./components/UserProfile";
 
 export default function App() {
   return (
     <div>
-      <h1 style={{ textAlign: "center" }}>Redux Toolkit Mini Project</h1>
-      <Counter />
+      <h1>Redux-Saga Mini Project</h1>
+      <UserProfile />
     </div>
   );
 }
