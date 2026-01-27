@@ -1,8 +1,13 @@
-import { throttle } from "redux-saga/effects";
-import { fetchUserWorker } from "../features/user/userSaga";
-import { fetchUserRequested } from "../features/user/userSlice";
+import { all } from "redux-saga/effects";
+import userWatcherSaga from "../features/user/userWatcherSaga";
+import postWatcherSaga from "../features/posts/postWatcherSaga";
+import { counterWatcherSaga } from "../features/counter/counterWatcherSaga";
+
 
 export default function* rootSaga() {
-  // Limits fetchUserWorker to run at most once every 1000ms
-  yield throttle(1000, fetchUserRequested.type, fetchUserWorker);
+   yield  all([
+        userWatcherSaga(),
+        postWatcherSaga(),
+        counterWatcherSaga()
+    ])
 }

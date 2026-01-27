@@ -1,5 +1,6 @@
 
 import './App.css'
+import Counter from './components/Counter'
 import User from './components/User'
 
 function App() {
@@ -7,8 +8,8 @@ function App() {
 
   return (
     <>
-    <User/>
-      
+    {/* <User/> */}
+      <Counter/>
     </>
   )
 }
