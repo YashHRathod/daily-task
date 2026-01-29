@@ -23,6 +23,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <div className="ml-10">Footer © 2026</div>
          <div><Profile/></div> 
         </footer>
+        
       </body>
     </html>
   );
