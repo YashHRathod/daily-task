@@ -7,7 +7,7 @@ export default function Routertest() {
 
   return (
     <button onClick={() => router.push("/routertest")}>
-      B
+      😒
     </button>
   );
 }

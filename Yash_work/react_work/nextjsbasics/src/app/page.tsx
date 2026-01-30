@@ -16,6 +16,10 @@ export default function Home() {
       <Link href="/user" className="text-blue-500 underline">
         Go to User Page
       </Link>
+      <br/>
+      <Link href="/counter" className="text-blue-500 underline">
+        Go to Counter
+      </Link>
     </div>
   );
 }
