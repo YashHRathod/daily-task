@@ -1,8 +1,7 @@
+import getUser from "../services/userServices";
 export default async function UserPage() {
-  const res = await fetch('https://jsonplaceholder.typicode.com/users',{
-    next: { revalidate: 10 }
-  });
-  const user = await res.json();
+ 
+  const user = await getUser();
   // console.log(user);
   return (
     <div>
