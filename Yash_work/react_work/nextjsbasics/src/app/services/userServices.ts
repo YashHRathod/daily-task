@@ -1,7 +1,14 @@
-export default async function getUser(){
-    const res = await fetch('https://jsonplaceholder.typicode.com/users')
-    if(!res.ok){
-        throw Error("unable to fetch")
+async function getBlog(id: string) {
+  const res = await fetch(
+    `https://jsonplaceholder.typicode.com/posts/${id}`,
+    {
+      cache: "no-store", 
     }
-    return res.json();
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch blog");
+  }
+
+  return res.json();
 }
